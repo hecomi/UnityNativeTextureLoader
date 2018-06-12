@@ -1,0 +1,325 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		582BD58620D024DF003DC7B7 /* libpng16.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 582BD58520D024DF003DC7B7 /* libpng16.a */; };
+		582BD58820D0255A003DC7B7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 582BD58720D0255A003DC7B7 /* OpenGL.framework */; };
+		58FD6FE420D01F4800F1371D /* png_loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58FD6FE120D01F4700F1371D /* png_loader.cpp */; };
+		58FD6FE520D01F4800F1371D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 58FD6FE220D01F4700F1371D /* main.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		582BD58520D024DF003DC7B7 /* libpng16.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libpng16.a; path = ../../../../../../../../usr/local/Cellar/libpng/1.6.34/lib/libpng16.a; sourceTree = "<group>"; };
+		582BD58720D0255A003DC7B7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		58B281F920D01E1F009B968F /* NativeTextureLoader.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NativeTextureLoader.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		58B281FC20D01E1F009B968F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58FD6FE020D01F4700F1371D /* png_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = png_loader.h; path = ../../src/png_loader.h; sourceTree = "<group>"; };
+		58FD6FE120D01F4700F1371D /* png_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = png_loader.cpp; path = ../../src/png_loader.cpp; sourceTree = "<group>"; };
+		58FD6FE220D01F4700F1371D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../src/main.cpp; sourceTree = "<group>"; };
+		58FD6FE320D01F4800F1371D /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = ../../src/util.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B281F620D01E1F009B968F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				582BD58820D0255A003DC7B7 /* OpenGL.framework in Frameworks */,
+				582BD58620D024DF003DC7B7 /* libpng16.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		582BD58420D024DF003DC7B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				582BD58720D0255A003DC7B7 /* OpenGL.framework */,
+				582BD58520D024DF003DC7B7 /* libpng16.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58B281F020D01E1E009B968F = {
+			isa = PBXGroup;
+			children = (
+				58B281FB20D01E1F009B968F /* NativeTextureLoader */,
+				58B281FA20D01E1F009B968F /* Products */,
+				582BD58420D024DF003DC7B7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		58B281FA20D01E1F009B968F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58B281F920D01E1F009B968F /* NativeTextureLoader.bundle */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58B281FB20D01E1F009B968F /* NativeTextureLoader */ = {
+			isa = PBXGroup;
+			children = (
+				58FD6FE220D01F4700F1371D /* main.cpp */,
+				58FD6FE120D01F4700F1371D /* png_loader.cpp */,
+				58FD6FE020D01F4700F1371D /* png_loader.h */,
+				58FD6FE320D01F4800F1371D /* util.h */,
+				58B281FC20D01E1F009B968F /* Info.plist */,
+			);
+			path = NativeTextureLoader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B281F820D01E1F009B968F /* NativeTextureLoader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B281FF20D01E1F009B968F /* Build configuration list for PBXNativeTarget "NativeTextureLoader" */;
+			buildPhases = (
+				58B281F520D01E1F009B968F /* Sources */,
+				58B281F620D01E1F009B968F /* Frameworks */,
+				58B281F720D01E1F009B968F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NativeTextureLoader;
+			productName = NativeTextureLoader;
+			productReference = 58B281F920D01E1F009B968F /* NativeTextureLoader.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B281F120D01E1E009B968F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = hecomi;
+				TargetAttributes = {
+					58B281F820D01E1F009B968F = {
+						CreatedOnToolsVersion = 9.4;
+					};
+				};
+			};
+			buildConfigurationList = 58B281F420D01E1E009B968F /* Build configuration list for PBXProject "NativeTextureLoader" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58B281F020D01E1E009B968F;
+			productRefGroup = 58B281FA20D01E1F009B968F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58B281F820D01E1F009B968F /* NativeTextureLoader */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58B281F720D01E1F009B968F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B281F520D01E1F009B968F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58FD6FE520D01F4800F1371D /* main.cpp in Sources */,
+				58FD6FE420D01F4800F1371D /* png_loader.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B281FD20D01E1F009B968F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		58B281FE20D01E1F009B968F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		58B2820020D01E1F009B968F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = ../../../Assets/NativeTextureLoader/Plugins/x86_64;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = NativeTextureLoader/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libpng/1.6.34/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hecomi.NativeTextureLoader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		58B2820120D01E1F009B968F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CONFIGURATION_BUILD_DIR = ../../../Assets/NativeTextureLoader/Plugins/x86_64;
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = NativeTextureLoader/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libpng/1.6.34/lib,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hecomi.NativeTextureLoader;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B281F420D01E1E009B968F /* Build configuration list for PBXProject "NativeTextureLoader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B281FD20D01E1F009B968F /* Debug */,
+				58B281FE20D01E1F009B968F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B281FF20D01E1F009B968F /* Build configuration list for PBXNativeTarget "NativeTextureLoader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B2820020D01E1F009B968F /* Debug */,
+				58B2820120D01E1F009B968F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B281F120D01E1E009B968F /* Project object */;
+}
