@@ -108,13 +108,13 @@ void PngLoader::UpdateTexture()
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glPixelStorei(GL_UNPACK_ALIGNMENT, m_alignment);
-    glTexImage2D(
+    glTexSubImage2D(
         GL_TEXTURE_2D,
         0,
-        GL_RGBA8,
+        0,
+        0,
         m_width,
         m_height,
-        0,
         m_format,
         GL_UNSIGNED_BYTE,
         m_rawData.get());
