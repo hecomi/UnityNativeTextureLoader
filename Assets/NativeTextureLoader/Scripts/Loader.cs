@@ -59,8 +59,6 @@ public class Loader : MonoBehaviour
 		var width = Lib.GetWidth(loader_);
 		var height = Lib.GetHeight(loader_);
 
-		Debug.Log(width);
-
 		texture_ = new Texture2D(width, height, TextureFormat.RGBA32, false);
 		Lib.SetTexture(loader_, texture_.GetNativeTexturePtr());
 		Lib.UpdateTexture(loader_);
@@ -68,10 +66,10 @@ public class Loader : MonoBehaviour
 		var renderer = GetComponent<Renderer>();
 		renderer.material.mainTexture = texture_;
 
-		Lib.UpdateTextureImmediate(loader_);
+		Lib.UpdateTexture(loader_);
 
 		yield return new WaitForEndOfFrame();
-		//GL.IssuePluginEvent(Lib.GetRenderEventFunc(), 0);
+		GL.IssuePluginEvent(Lib.GetRenderEventFunc(), 0);
 	}
 }
 
