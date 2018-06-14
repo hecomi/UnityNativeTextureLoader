@@ -8,71 +8,74 @@ namespace NativeTextureLoader
 
 public class Loader : MonoBehaviour
 {
-	[SerializeField]
-	string path = "hecomi.png";
+    [SerializeField]
+    string path = "hecomi.png";
 
-	System.IntPtr loader_;
-	Texture2D texture_ ;
+    System.IntPtr loader_;
+    Texture2D texture_ ;
 
-	void Start()
-	{
-		StartCoroutine(LoadImage());
-	}
+    void Start()
+    {
+        StartCoroutine(LoadImage());
+    }
 
-	void OnDestroy()
-	{
-		if (loader_ != System.IntPtr.Zero)
-		{
-			Lib.DestroyLoader(loader_);
-		}
-	}
+    void OnDestroy()
+    {
+        if (loader_ != System.IntPtr.Zero)
+        {
+            Lib.DestroyLoader(loader_);
+        }
+    }
 
-	IEnumerator LoadImage()
-	{
-		var url = "file://" + System.IO.Path.Combine(Application.streamingAssetsPath, path);
+    IEnumerator LoadImage()
+    {
+        var url = System.IO.Path.Combine(Application.streamingAssetsPath, path);
+#if UNITY_EDITOR
+        url = "file://" + url;
+#endif
 
         using (var www = new WWW(url)) 
-		{
-			yield return www;
-			if (string.IsNullOrEmpty(www.error))
-			{
-				OnDataLoaded(www.bytes);
-			}
-			else
-			{
-				Debug.LogError(www.error);
-			}
+        {
+            yield return www;
+            if (string.IsNullOrEmpty(www.error))
+            {
+                OnDataLoaded(www.bytes);
+            }
+            else
+            {
+                Debug.LogError(www.error);
+            }
         }
-	}
+    }
 
-	async void OnDataLoaded(byte[] data)
-	{
-		var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
-		var pointer = handle.AddrOfPinnedObject();
-		await Task.Run(() => 
-		{
-			loader_ = Lib.CreateLoader();
-			Lib.Load(loader_, pointer, data.Length);
-		});
-		handle.Free();
+    async void OnDataLoaded(byte[] data)
+    {
+        var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+        var pointer = handle.AddrOfPinnedObject();
+        await Task.Run(() => 
+        {
+            loader_ = Lib.CreateLoader();
+            Lib.Load(loader_, pointer, data.Length);
+        });
+        handle.Free();
 
-		var width = Lib.GetWidth(loader_);
-		var height = Lib.GetHeight(loader_);
-		texture_ = new Texture2D(width, height, TextureFormat.RGBA32, false);
-		Lib.SetTexture(loader_, texture_.GetNativeTexturePtr());
-		Lib.UpdateTexture(loader_);
+        var width = Lib.GetWidth(loader_);
+        var height = Lib.GetHeight(loader_);
+        texture_ = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        Lib.SetTexture(loader_, texture_.GetNativeTexturePtr());
+        Lib.UpdateTexture(loader_);
 
-		var renderer = GetComponent<Renderer>();
-		renderer.material.mainTexture = texture_;
+        var renderer = GetComponent<Renderer>();
+        renderer.material.mainTexture = texture_;
 
-		StartCoroutine(IssuePluginEvent());
-	}
+        StartCoroutine(IssuePluginEvent());
+    }
 
-	IEnumerator IssuePluginEvent()
-	{
-		yield return new WaitForEndOfFrame();
-		GL.IssuePluginEvent(Lib.GetRenderEventFunc(), 0);
-	}
+    IEnumerator IssuePluginEvent()
+    {
+        yield return new WaitForEndOfFrame();
+        GL.IssuePluginEvent(Lib.GetRenderEventFunc(), 0);
+    }
 }
 
 }
