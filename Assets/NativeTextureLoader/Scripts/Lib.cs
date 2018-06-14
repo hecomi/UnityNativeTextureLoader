@@ -14,10 +14,7 @@ public static class Lib
     public static extern void DestroyLoader(IntPtr loader);
 
     [DllImport("NativeTextureLoader")]
-    public static extern void SetData(IntPtr loader, IntPtr data, int size);
-
-    [DllImport("NativeTextureLoader")]
-    public static extern void Load(IntPtr loader);
+    public static extern void Load(IntPtr loader, IntPtr data, int size);
 
     [DllImport("NativeTextureLoader")]
     public static extern void SetTexture(IntPtr loader, IntPtr texture);

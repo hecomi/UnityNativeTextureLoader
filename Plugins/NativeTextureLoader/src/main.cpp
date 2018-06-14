@@ -21,16 +21,10 @@ void DestroyLoader(PngLoader *pPngLoader)
     delete pPngLoader;
 }
 
-void SetData(PngLoader *pPngLoader, const void *pData, size_t dataSize)
+void Load(PngLoader *pPngLoader, const void *pData, size_t dataSize)
 {
     if (pPngLoader == nullptr || pData == nullptr) return;
-    pPngLoader->SetData(pData, dataSize);
-}
-
-void Load(PngLoader *pPngLoader)
-{
-    if (pPngLoader == nullptr) return;
-    pPngLoader->Load();
+    pPngLoader->Load(pData, dataSize);
 }
 
 void SetTexture(PngLoader *pPngLoader, GLuint texture)

@@ -6,19 +6,11 @@
 using namespace NativeImageLoader;
 
 
-void PngLoader::SetData(const void *pData, size_t dataSize)
+void PngLoader::Load(const void *pData, size_t dataSize)
 {
-    m_pngData = std::make_unique<unsigned char[]>(dataSize);
-    m_pngDataSize = dataSize;
-    memcpy(m_pngData.get(), pData, dataSize);
-}
+    if (dataSize < 8) return;
 
-
-void PngLoader::Load()
-{
-    if (m_pngDataSize < 8) return;
-
-    const auto *pHeader = reinterpret_cast<png_byte*>(m_pngData.get());
+    const auto *pHeader = reinterpret_cast<const png_byte*>(pData);
     if (png_sig_cmp(pHeader, 0, 8)) return;
 
     auto png = png_create_read_struct(
@@ -38,12 +30,12 @@ void PngLoader::Load()
 
     struct Data
     {
-        unsigned char *m_pData;
+        const unsigned char *m_pData;
         unsigned long m_offset;
     };
     Data data
     {
-        static_cast<unsigned char*>(m_pngData.get()),
+        static_cast<const unsigned char*>(pData),
         8,
     };
 
@@ -87,13 +79,13 @@ void PngLoader::Load()
     const size_t rowBytes = png_get_rowbytes(png, info);
     m_width = png_get_image_width(png, info);
     m_height = png_get_image_height(png, info);
-    m_rawData = std::make_unique<unsigned char[]>(rowBytes * m_height);
+    m_data = std::make_unique<unsigned char[]>(rowBytes * m_height);
 
     const auto rows = png_get_rows(png, info);
     for (int i = 0; i < m_height; ++i)
     {
         const size_t offset = rowBytes * i;
-        memcpy(m_rawData.get() + offset, rows[i], rowBytes);
+        memcpy(m_data.get() + offset, rows[i], rowBytes);
     }
 
     m_hasLoaded = true;
@@ -117,7 +109,7 @@ void PngLoader::UpdateTexture()
         m_height,
         m_format,
         GL_UNSIGNED_BYTE,
-        m_rawData.get());
+        m_data.get());
 
     glBindTexture(GL_TEXTURE_2D, 0);
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace NativeTextureLoader
 {
@@ -35,7 +36,7 @@ public class Loader : MonoBehaviour
 			yield return www;
 			if (string.IsNullOrEmpty(www.error))
 			{
-				yield return OnDataLoaded(www.bytes);
+				OnDataLoaded(www.bytes);
 			}
 			else
 			{
@@ -44,21 +45,19 @@ public class Loader : MonoBehaviour
         }
 	}
 
-	IEnumerator OnDataLoaded(byte[] data)
+	async void OnDataLoaded(byte[] data)
 	{
-		GCHandle handle = GCHandle.Alloc(data, GCHandleType.Pinned);
+		var handle = GCHandle.Alloc(data, GCHandleType.Pinned);
 		var pointer = handle.AddrOfPinnedObject();
-
-		loader_ = Lib.CreateLoader();
-		Lib.SetData(loader_, pointer, data.Length);
-
+		await Task.Run(() => 
+		{
+			loader_ = Lib.CreateLoader();
+			Lib.Load(loader_, pointer, data.Length);
+		});
 		handle.Free();
-
-		Lib.Load(loader_); // 非同期にする
 
 		var width = Lib.GetWidth(loader_);
 		var height = Lib.GetHeight(loader_);
-
 		texture_ = new Texture2D(width, height, TextureFormat.RGBA32, false);
 		Lib.SetTexture(loader_, texture_.GetNativeTexturePtr());
 		Lib.UpdateTexture(loader_);
@@ -66,8 +65,11 @@ public class Loader : MonoBehaviour
 		var renderer = GetComponent<Renderer>();
 		renderer.material.mainTexture = texture_;
 
-		Lib.UpdateTexture(loader_);
+		StartCoroutine(IssuePluginEvent());
+	}
 
+	IEnumerator IssuePluginEvent()
+	{
 		yield return new WaitForEndOfFrame();
 		GL.IssuePluginEvent(Lib.GetRenderEventFunc(), 0);
 	}

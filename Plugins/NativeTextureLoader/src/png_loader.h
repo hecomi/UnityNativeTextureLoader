@@ -13,9 +13,8 @@ namespace NativeImageLoader
 class PngLoader
 {
 public:
-    void SetData(const void *pData, size_t size);
+    void Load(const void *pData, size_t size);
     void SetTexture(GLuint texture) { m_texture = texture; }
-    void Load();
     void UpdateTexture();
     bool HasLoaded() const { return m_hasLoaded; }
     bool HasTextureUpdated() const { return m_hasUpdated; }
@@ -23,9 +22,7 @@ public:
     int GetHeight() const { return m_height; }
 
 private:
-    std::unique_ptr<unsigned char[]> m_pngData;
-    size_t m_pngDataSize = 0;
-    std::unique_ptr<unsigned char[]> m_rawData;
+    std::unique_ptr<unsigned char[]> m_data;
     bool m_hasLoaded = false;
     bool m_hasUpdated = false;
     GLuint m_texture = 0;
