@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 using System.Collections;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
@@ -34,17 +35,16 @@ public class Loader : MonoBehaviour
         url = "file://" + url;
 #endif
 
-        using (var www = new WWW(url)) 
+        var req = UnityWebRequest.Get(url);
+        yield return req.SendWebRequest();
+
+        if (req.isDone)
         {
-            yield return www;
-            if (string.IsNullOrEmpty(www.error))
-            {
-                OnDataLoaded(www.bytes);
-            }
-            else
-            {
-                Debug.LogError(www.error);
-            }
+            OnDataLoaded(req.downloadHandler.data);
+        }
+        else
+        {
+            Debug.LogError(req.error);
         }
     }
 
