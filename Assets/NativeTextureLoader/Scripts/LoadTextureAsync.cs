@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace NativeTextureLoader
 {
 
-public class Loader : MonoBehaviour
+public class LoadTextureAsync : MonoBehaviour
 {
     [SerializeField]
     string path = "hecomi.png";

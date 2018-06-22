@@ -21,7 +21,6 @@
 		58FD6FE020D01F4700F1371D /* png_loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = png_loader.h; path = ../../src/png_loader.h; sourceTree = "<group>"; };
 		58FD6FE120D01F4700F1371D /* png_loader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = png_loader.cpp; path = ../../src/png_loader.cpp; sourceTree = "<group>"; };
 		58FD6FE220D01F4700F1371D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../src/main.cpp; sourceTree = "<group>"; };
-		58FD6FE320D01F4800F1371D /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = util.h; path = ../../src/util.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,7 +68,6 @@
 				58FD6FE220D01F4700F1371D /* main.cpp */,
 				58FD6FE120D01F4700F1371D /* png_loader.cpp */,
 				58FD6FE020D01F4700F1371D /* png_loader.h */,
-				58FD6FE320D01F4800F1371D /* util.h */,
 				58B281FC20D01E1F009B968F /* Info.plist */,
 			);
 			path = NativeTextureLoader;

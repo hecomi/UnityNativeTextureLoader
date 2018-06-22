@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 226881883}
   - component: {fileID: 226881882}
   - component: {fileID: 226881881}
+  - component: {fileID: 226881886}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -210,6 +211,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 24.874, y: -48.856003, z: -25.236002}
+--- !u!114 &226881886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 226881880}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd488e0e94a054e33890e41f6c518d1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: hecomi.png
 --- !u!1 &1375987114
 GameObject:
   m_ObjectHideFlags: 0

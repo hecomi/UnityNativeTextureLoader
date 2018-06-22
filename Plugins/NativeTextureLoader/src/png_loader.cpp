@@ -1,9 +1,24 @@
-#include <cstdio>
+#include <functional>
 #include <png.h>
 #include "png_loader.h"
 #include "util.h"
 
 using namespace NativeImageLoader;
+
+
+namespace
+{
+    class ScopeReleaser
+    {
+    public:
+        using Func = std::function<void()>;
+        ScopeReleaser(const Func &func) : m_func(func) {}
+        ~ScopeReleaser() { if (m_func) m_func(); }
+        
+    private:
+        const Func m_func;
+    };
+}
 
 
 void PngLoader::Load(const void *pData, size_t dataSize)

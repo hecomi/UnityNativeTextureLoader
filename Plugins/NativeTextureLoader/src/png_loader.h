@@ -17,14 +17,12 @@ public:
     void SetTexture(GLuint texture) { m_texture = texture; }
     void UpdateTexture();
     bool HasLoaded() const { return m_hasLoaded; }
-    bool HasTextureUpdated() const { return m_hasUpdated; }
     int GetWidth() const { return m_width; }
     int GetHeight() const { return m_height; }
 
 private:
     std::unique_ptr<unsigned char[]> m_data;
     bool m_hasLoaded = false;
-    bool m_hasUpdated = false;
     GLuint m_texture = 0;
     GLenum m_format = 0;
     GLint m_alignment = 1;
