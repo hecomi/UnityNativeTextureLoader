@@ -269,6 +269,7 @@
 					"$(inherited)",
 					/usr/local/Cellar/libpng/1.6.34/lib,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.hecomi.NativeTextureLoader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -282,6 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CONFIGURATION_BUILD_DIR = ../../../Assets/NativeTextureLoader/Plugins/x86_64;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = NativeTextureLoader/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
