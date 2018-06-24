@@ -13,7 +13,6 @@ public class LoadTextureAsync : MonoBehaviour
     string path = "hecomi.png";
 
     System.IntPtr loader_;
-    Texture2D texture_ ;
 
     void Start()
     {
@@ -61,12 +60,11 @@ public class LoadTextureAsync : MonoBehaviour
 
         var width = Lib.GetWidth(loader_);
         var height = Lib.GetHeight(loader_);
-        texture_ = new Texture2D(width, height, TextureFormat.RGBA32, false);
-        Lib.SetTexture(loader_, texture_.GetNativeTexturePtr());
-        Lib.UpdateTexture(loader_);
+        var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+        Lib.SetTexture(loader_, texture.GetNativeTexturePtr());
 
         var renderer = GetComponent<Renderer>();
-        renderer.material.mainTexture = texture_;
+        renderer.material.mainTexture = texture;
 
         StartCoroutine(IssuePluginEvent());
     }

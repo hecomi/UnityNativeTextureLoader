@@ -31,11 +31,6 @@ void SetTexture(PngLoader *pPngLoader, GLuint texture)
 {
     if (pPngLoader == nullptr) return;
     pPngLoader->SetTexture(texture);
-}
-
-void UpdateTexture(PngLoader *pPngLoader)
-{
-    if (pPngLoader == nullptr) return;
     g_updateQueue.push(pPngLoader);
 }
     
