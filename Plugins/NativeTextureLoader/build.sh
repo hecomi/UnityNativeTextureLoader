@@ -12,4 +12,7 @@ xcodebuild -project mac/$PluginName.xcodeproj -configuration Release build
 # Android
 echo "\n==============================\n Android\n==============================\n"
 rm -rf ../../Assets/$PluginName/Plugins/Android/lib$PluginName.so
+cd jni
 ndk-build
+cd ..
+
