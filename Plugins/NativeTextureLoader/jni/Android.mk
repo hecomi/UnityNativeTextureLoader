@@ -7,7 +7,7 @@ include $(CLEAR_VARS)
 
 LOCAL_PATH := $(TOP_LOCAL_PATH)
 
-NDK_APP_DST_DIR := ../../../Assets/NativeTextureLoader/Plugins/Android
+NDK_APP_DST_DIR := ../../Assets/NativeTextureLoader/Plugins/Android
 LOCAL_MODULE    := libNativeTextureLoader
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/libpng-android/jni/.
 LOCAL_SRC_FILES  := $(wildcard ../src/*.cpp)
